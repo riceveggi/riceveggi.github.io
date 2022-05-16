@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>sorrykat</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>sorrykat-2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14612,7 +14612,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14653,7 +14653,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># read excel spreadsheet</span>
@@ -14674,7 +14674,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="2.-DATA-CLEANING">2. DATA CLEANING<a class="anchor-link" href="#2.-DATA-CLEANING">&#182;</a></h2><p>Because of how the survey was designed, it took some time to figure out how to tidy and clean the data when graphing different plots when performing exploratory data analysis and hypothesis testing. Although none of the responses were missing, we had to figure out whether to include or exclude some survey answers. And even though we decide to drop the response, that doesn’t mean we could disregard the entire data entry, or row in this case, of the table because the same table row may have appropriate responses for other types of questions, or columns in this case.</p>
-<p>So we decided to split the dataframe into multiple dataframes for exploratory analysis so that we could drop rows based on __ without affecting other possible analyses we could perform on.</p>
+<p>So we decided to split the dataframe into multiple dataframes for exploratory analysis so that we could drop rows based on the plots and analyzawe've created and made in the third part of this tutorial without affecting other possible analyses we could perform on.</p>
 <p>Before doing cleaning, we dropped some columns that we deemed irrelevant to the goal of this tutorial and decided to include the following questions: 
 Which is your favorite K-Pop group?</p>
 <ul>
@@ -14699,7 +14699,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">positive_effects</span> <span class="o">=</span> <span class="s1">&#39;Have you experienced any positive effects after consuming K-Pop? &#39;</span>
@@ -14732,9 +14732,9 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>First we cleaned the MONEY_SPENT column by replacing and separating all data into five categories: 0, less than $50, $50 to \$100, \$100 to \$200, \$200 to \$300, \$2000 or more, \$5000 or more and Unknown. We made a separate category for unknown for some open-ended responses because it was not possible to speculate the appropriate category unlike other open-ended responses. For example, answers such as “10?” or "I spend less than \$50 cuz I'm broke, but if I had money, I would probably spend \$200+" was easy to classify as “less than $50” compared to other responses such as "Depends but usually not a lot. ". Because it was difficult to assume the category, and if we did, it might have affected the data plots and integrity of the dataset. Therefore we decided to remove the unknown values from the dataset because we cannot connect the responses to other columns.</p>
+<p>First we cleaned the MONEY_SPENT column by replacing and separating all data into five categories: 0, less than \$50, \$50 to \$100, \$100 to \$200, \$200 to \$300, \$2000 or more, \$5000 or more and Unknown. We made a separate category for unknown for some open-ended responses because it was not possible to speculate the appropriate category unlike other open-ended responses. For example, answers such as “10?” or "I spend less than \$50 cuz I'm broke, but if I had money, I would probably spend \$200+" was easy to classify as “less than $50” compared to other responses such as "Depends but usually not a lot. ". Because it was difficult to assume the category, and if we did, it might have affected the data plots and integrity of the dataset. Therefore we decided to remove the unknown values from the dataset because we cannot connect the responses to other columns.</p>
 <p>We then created a new column MONEY_SPENT_INT to convert the cleaned MONEY_SPENT column to integer values. To do so, we took the average of each range of the responses. For example 50 to 100 was replaced with 75, 100 to 200 was replaced with 150 and so on. This was a necessary step for us to plot the graphs to discover the relationship between other responses.</p>
-<p>We have performed the same replacing, cleaning, and conversion for other columns such as hours_listened, years_listened, and hours_watched. For the k-pop_news column, we counted the number of types of k-pop news and made a separate new column num_suscribed. After most of the cleaning was done, we dropped unnecessary columns. It is worth noting that none of the rows have been dropped yet.</p>
+<p>We have performed the same replacing, cleaning, and conversion for other columns such as hours_listened, years_listened, and hours_watched. For the k-pop_news column, we counted the number of types of k-pop news and made a separate new column num_suscribed. After most of the cleaning was done, we dropped unnecessary columns.</p>
 
 </div>
 </div>
@@ -14743,7 +14743,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[57]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#deal with the customized responses regarding the question &quot;How much do you spend on K-Pop merchandise?&quot;</span>
@@ -14891,7 +14891,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#reorder dataframe by money spent</span>
@@ -14923,7 +14923,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#plot bar in stack manner</span>
@@ -14977,7 +14977,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Our first bar plot compares the amount of money spent on k-pop merchandise by age group. Looking at the graph, we noticed right away that the age group 21 to 26 is dominant for each range of money spent followed by the age group 15 to 20. Regardless of age group, the bar plot also demonstrates that most respondents spent less than \$50 on merchandise followed by 50 to 100 dollars. Only a very few respondents spent money above $200.</p>
+<p>Our first bar plot compares the amount of money spent on k-pop merchandise by age group. Looking at the graph, we noticed right away that the age group 21 to 26 is dominant for each range of money spent followed by the age group 15 to 20. Regardless of age group, the bar plot also demonstrates that most respondents spent less than $50 on merchandise followed by $50 to 100 dollars. Only a very few respondents spent money above $200.</p>
 
 </div>
 </div>
@@ -14986,7 +14986,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#calculate average money spent based on the gender</span>
@@ -15047,7 +15047,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#splitting dataframe ... </span>
@@ -15104,7 +15104,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Next, we compared average money spent based on occupation. We separated the profession types to student vs not student (respondents who had occupation) then grouped the dataframe by profession. For each group, we calculated the sum of money spent and divided it by the number of respondents in each profession group. After plotting we noticed that students spent nearly \$100 dollars on average towering non students by $20 dollars.</p>
+<p>Next, we compared average money spent based on occupation. We separated the profession types to student vs not student (respondents who had occupation) then grouped the dataframe by profession. For each group, we calculated the sum of money spent and divided it by the number of respondents in each profession group. After plotting we noticed that students spent nearly 100 dollars on average towering non students by 20 dollars.</p>
 
 </div>
 </div>
@@ -15113,7 +15113,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">kpop_news_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;NUM_SUSCRIBED&#39;</span><span class="p">,</span> <span class="s1">&#39;MONEY_SPENT_INT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -15180,7 +15180,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#drop the MONEY_SPENT outlier, which are 1000, 2000, and 5000, since there is only 1 data point for each amount of money spent </span>
@@ -15199,7 +15199,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create violin plot comparing years listened (x axis) vs money spent (y axis)</span>
@@ -15275,7 +15275,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Next we created a violin plot to visualize the average years people listened to k pop vs average money spent. The plot produced 4 violins, as expected, because there were 4 different types of responses. It turned out the violin plot for 1 to 2 years was unimodal and symmetric compared to other violin plots. This tells us that the distribution of average money spent for respondents who listened to k-pop 1 to 2 years was even. The violin plot also tells us there were extreme outliers for 3 to 4 years and more than 4 years. Interestingly, all plots seemed to center around average money spent of $70 but with different ranges and skewness. We also plotted a linear regression line for all data points in the plot. According to the prediction, amount of average money spent increases \$5.23 per year.</p>
+<p>Next we created a violin plot to visualize the average years people listened to k pop vs average money spent. The plot produced 4 violins, as expected, because there were 4 different types of responses. It turned out the violin plot for 1 to 2 years was unimodal and symmetric compared to other violin plots. This tells us that the distribution of average money spent for respondents who listened to k-pop 1 to 2 years was even. The violin plot also tells us there were extreme outliers for 3 to 4 years and more than 4 years. Interestingly, all plots seemed to center around average money spent of 70 dollars but with different ranges and skewness. We also plotted a linear regression line for all data points in the plot. According to the prediction, amount of average money spent increases \$5.23 per year.</p>
 
 </div>
 </div>
@@ -15284,7 +15284,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create violin plot comparing hours listened (x axis) vs money spent (y axis) </span>
@@ -15360,7 +15360,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Our next violin plot compared average hours people listened to k-pop daily vs average money spent on merchandise. The plot produced 3 violins for each type of response. The violin plot for 2 to 4 hours turned out to be least skewed and unimodal compared to less than 1 hour which was heavily skewed towards average money spent around $50. The money spent range for people who listen to 4 to 6 hours daily was largest due to outlier data points. We also plotted a linear regression line for all data points in the plot. According to the prediction, amount of average money spent increases \$5.2292 per hour.</p>
+<p>Our next violin plot compared average hours people listened to k-pop daily vs average money spent on merchandise. The plot produced 3 violins for each type of response. The violin plot for 2 to 4 hours turned out to be least skewed and unimodal compared to less than 1 hour which was heavily skewed towards average money spent around 50 dollars. The money spent range for people who listen to 4 to 6 hours daily was largest due to outlier data points. We also plotted a linear regression line for all data points in the plot. According to the prediction, amount of average money spent increases \$5.2292 per hour.</p>
 
 </div>
 </div>
@@ -15369,7 +15369,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create violin plot comparing hours watched (x axis) vs money spent (y axis)</span>
@@ -15445,7 +15445,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Our last violin plot compared average hours people watched k-pop videos vs average money spent on merchandise. The plot produced 5 plots for each type of response. The violin plot for 2 to 3 hours watched turned out to be centered, least skewed and unimodal compared to 0 hours watched. Except for 0 hours listened, the rest violin plots are centered around \$50 spent with \$75 being highest for 4 or more hours watched. The linear regression predicted that average money spent will increase by $4.3818 per increasing hour.</p>
+<p>Our last violin plot compared average hours people watched k-pop videos vs average money spent on merchandise. The plot produced 5 plots for each type of response. The violin plot for 2 to 3 hours watched turned out to be centered, least skewed and unimodal compared to 0 hours watched. Except for 0 hours listened, the rest violin plots are centered around 50 dollars spent with \$75 being highest for 4 or more hours watched. The linear regression predicted that average money spent will increase by $4.3818 per increasing hour.</p>
 
 </div>
 </div>
@@ -15463,7 +15463,7 @@ Which is your favorite K-Pop group?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#deal with the categorical parameters age, gender and attend_concert</span>
@@ -15526,7 +15526,7 @@ weighted avg       0.46      0.61      0.51        87
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>According to the LDA performance metric, it seems that the model didn't do quite well on predicting the amount of money people spent on K-pop merchandise. To improve our model performance, we consider additional parameters. These parameters are the values before we dropped the columns: "Would you say that you are obsessed with K-Pop?", "What is your profession?", "If you do spend money on K-Pop merchandises where do you get money from?" and "Do you attend K-Pop concerts?".</p>
+<p>According to the LDA performance metric, it seems that the model didn't do quite well on predicting the amount of money people spent on K-pop merchandise. To improve our model performance, we consider additional parameters. These parameters are the values before we dropped the columns: "Would you say that you are obsessed with K-Pop?", "What is your profession?", and "Do you attend K-Pop concerts?", "'Is K-Pop popular in your country?".</p>
 
 </div>
 </div>
@@ -15535,7 +15535,7 @@ weighted avg       0.46      0.61      0.51        87
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#deal with the categorical parameters obsession and profession</span>
@@ -15598,7 +15598,7 @@ weighted avg       0.47      0.53      0.50        87
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>With more categorical values included, our LDA model performed slightly better, with precision 69% compared to 64% before adding more variables. On the other hand, our accuracy has dropped from 61% to 53%.</p>
+<p>With more categorical values included, our LDA model performed slightly better, with precision 69% compared to 64% before adding more variables. On the other hand, our accuracy has dropped from 61% to 53%. Even though the entire performance doesn't improve that much, the model predicted relatively well on the class with value 0, the group which people don't spend money on merchandise at all.</p>
 
 </div>
 </div>
@@ -15606,7 +15606,11 @@ weighted avg       0.47      0.53      0.50        87
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Communications-and-Insights-Attained">Communications and Insights Attained<a class="anchor-link" href="#Communications-and-Insights-Attained">&#182;</a></h1><p>The low accuracy and precision of the LDA model made us realize that the data was not consistent for the machine learning model. We speculate that the cause of</p>
+<h1 id="Conclusion-and-Communications-and-Insights-Attained">Conclusion and Communications and Insights Attained<a class="anchor-link" href="#Conclusion-and-Communications-and-Insights-Attained">&#182;</a></h1><p>The low accuracy and precision of the LDA model made us realize that the data was not consistent for the machine learning model. We speculate that the issue was due to not having enough data to correlate the different variables. Before cleaning, the dataset initially had 240 entries but after removing rows that were impossible to categorize, it was less than 220. In addition, even if we were trying to be as objective as possible when removing data, it is impossible to ignore the fact that our data selection was biased at the slightest. If we have performed the same tutorial for dataset size at least 1000 entries, we are certain that the LDA model would have given us better numbers.</p>
+<p>That aside, we still predicted average money spent vs (average hours listened, average hours watched, and average years listened) using a linear regression model, which gave us positive slopes.</p>
+<p>We hope that this tutorial will serve as a guidance for data scientists in the future who have obtained a better dataset for us. In addition, we are certain that this notebook can provide insight on how multiple factors of a k-pop fan can affect the money spent on k-pop merchandise for enhanced ad targeting that can lead to positive business and economic growth.</p>
+<p>As k-pop continues its rise, we believe our analysis will aid the research of the reasons behind the rise of the k-pop industry and popularity.</p>
+<p>Thank you.</p>
 
 </div>
 </div>
